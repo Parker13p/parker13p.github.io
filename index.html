@@ -1,95 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parker Sports</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f4f6f8; color: #111827; }
-    header { background: #111827; color: white; padding: 24px 8%; }
-    nav { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
-    .logo { font-size: 28px; font-weight: 800; }
-    nav a { color:white; text-decoration:none; margin-left:18px; font-weight:600; }
-    .hero { padding:70px 8%; background:linear-gradient(135deg,#111827,#374151); color:white; }
-    .hero h1 { font-size: clamp(40px,7vw,72px); margin-bottom:15px; }
-    .hero p { font-size:20px; max-width:650px; color:#d1d5db; }
-    .btn { display:inline-block; margin-top:25px; background:white; color:#111827; padding:13px 20px; border-radius:10px; text-decoration:none; font-weight:700; }
-    main { max-width:1100px; margin:auto; padding:45px 20px; }
-    .section-title { margin-bottom:20px; font-size:30px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-    .card { background:white; border-radius:16px; padding:24px; box-shadow:0 5px 18px rgba(0,0,0,.08); }
-    .tag { display:inline-block; font-size:12px; font-weight:800; background:#e5e7eb; padding:6px 9px; border-radius:999px; margin-bottom:12px; }
-    .card h3 { margin-bottom:10px; font-size:21px; }
-    .card p { color:#4b5563; line-height:1.5; }
-    footer { text-align:center; padding:30px; background:#111827; color:#d1d5db; margin-top:30px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parker Sports | NBA • Recruiting • News</title>
+<meta name="description" content="Parker Sports — NBA stats, recruiting and daily athlete news.">
+<style>
+:root{--bg:#070b12;--card:#101722;--line:#243044;--text:#f7f9fc;--muted:#9aa7b8;--orange:#ff6b35;--blue:#38bdf8}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#070b12,#0b111b);color:var(--text);font:16px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}.wrap{max-width:1150px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:#070b12ee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{font-weight:950;font-size:22px}.logo span{color:var(--orange)}nav a{text-decoration:none;color:#cbd5e1;font-weight:700;margin-left:16px}
+.hero{padding:85px 0 65px;background:radial-gradient(circle at 80% 20%,#38bdf81f,transparent 30%),radial-gradient(circle at 15% 40%,#ff6b351f,transparent 30%)}.eyebrow{color:var(--orange);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(45px,8vw,78px);line-height:.98;letter-spacing:-3px;max-width:850px;margin:14px 0}.hero p{max-width:700px;color:#cbd5e1;font-size:19px}.btn{display:inline-block;margin-top:20px;padding:12px 17px;border-radius:12px;background:var(--orange);text-decoration:none;font-weight:900}.btn.alt{margin-left:8px;background:var(--card);border:1px solid var(--line)}
+section{padding:55px 0}.head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.head h2{font-size:31px;margin:0}.head p{color:var(--muted);max-width:680px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:17px}.card{background:linear-gradient(145deg,var(--card),#0b121c);border:1px solid var(--line);border-radius:17px;padding:20px}.card h3{margin:10px 0 7px}.muted{color:var(--muted)}.tag{display:inline-block;background:#1b2839;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900}
+.table{overflow:auto;border:1px solid var(--line);border-radius:17px}.table table{width:100%;min-width:700px;border-collapse:collapse;background:var(--card)}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}th{font-size:12px;color:var(--muted);text-transform:uppercase}td{font-weight:700}.rank{color:var(--orange)}.source{font-size:12px;color:#718096;margin-top:10px}.source a{color:#9aa7b8}
+.news{min-height:165px}.news .date{color:var(--blue);font-size:12px;font-weight:900}.news a{text-decoration:none}.news p{color:var(--muted);font-size:14px}.status{color:#86efac;font-size:12px;font-weight:900}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;margin-right:6px}
+.recruit{display:grid;grid-template-columns:50px 1fr auto;gap:14px;align-items:center}.r{font-size:28px;color:var(--orange);font-weight:950}.school{color:var(--muted);font-size:13px}.service{color:#93c5fd;font-size:12px;font-weight:800}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+@media(max-width:650px){nav{align-items:flex-start;padding:13px 0}nav a{margin-left:9px;font-size:13px}.hero{padding-top:65px}.hero h1{letter-spacing:-2px}.head{display:block}.btn.alt{margin-left:0}}
+</style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Parker Sports</div>
-      <div>
-        <a href="#football">Football</a>
-        <a href="#basketball">Basketball</a>
-        <a href="#players">Players</a>
-      </div>
-    </nav>
-  </header>
+<header><div class="wrap"><nav><div class="logo">PARKER <span>SPORTS</span></div><div><a href="#news">News</a><a href="#nba">NBA</a><a href="#recruiting">Recruiting</a></div></nav></div></header>
 
-  <section class="hero">
-    <h1>Local Sports. Real Stories.</h1>
-    <p>Football and basketball news, scores, player spotlights and game-day coverage.</p>
-    <a class="btn" href="#latest">See Latest</a>
-  </section>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Basketball • Recruiting • Real data</div>
+<h1>Know the players. <span style="color:var(--orange)">Know the game.</span></h1>
+<p>Professional-style NBA coverage, college recruiting boards, player statistics and daily athlete news — with sources clearly labeled.</p>
+<a class="btn" href="#nba">NBA rankings</a><a class="btn alt" href="#recruiting">Recruiting</a>
+</div></section>
 
-  <main>
-    <section id="latest">
-      <h2 class="section-title">Latest</h2>
-      <div class="grid">
-        <article class="card">
-          <span class="tag">FOOTBALL</span>
-          <h3>Game Day Spotlight</h3>
-          <p>Add your latest football story, score or game preview here.</p>
-        </article>
-        <article class="card">
-          <span class="tag">BASKETBALL</span>
-          <h3>Player Watch</h3>
-          <p>Highlight a player and explain what makes their game stand out.</p>
-        </article>
-        <article class="card">
-          <span class="tag">NEWS</span>
-          <h3>What’s Happening</h3>
-          <p>Share the biggest local sports news and upcoming events.</p>
-        </article>
-      </div>
-    </section>
+<section id="news"><div class="wrap">
+<div class="head"><div><h2>Latest Athlete News</h2><p>Stories are pulled from ESPN's public NBA news feed when available and link back to the original story.</p></div><div class="status"><span class="dot"></span>Live feed</div></div>
+<div id="newsGrid" class="grid"><div class="card muted">Loading latest news…</div></div>
+</div></section>
 
-    <section id="football" style="margin-top:55px">
-      <h2 class="section-title">🏈 Football</h2>
-      <div class="card">
-        <h3>Schedules • Scores • Rankings</h3>
-        <p>Build this section with your local teams, game previews and results.</p>
-      </div>
-    </section>
+<section id="nba"><div class="wrap">
+<div class="head"><div><h2>NBA Player Stats</h2><p>Use official NBA.com stats for current-season verification. The table below is a starter board and should not be treated as live data.</p></div></div>
+<div class="table"><table><thead><tr><th>#</th><th>Player</th><th>Team</th><th>PPG</th><th>RPG</th><th>APG</th></tr></thead>
+<tbody>
+<tr><td class="rank">1</td><td>Luka Dončić</td><td>LAL</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="rank">2</td><td>Shai Gilgeous-Alexander</td><td>OKC</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="rank">3</td><td>Nikola Jokić</td><td>DEN</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="rank">4</td><td>Jayson Tatum</td><td>BOS</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td class="rank">5</td><td>Victor Wembanyama</td><td>SAS</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<div class="source">Official source: <a href="https://www.nba.com/stats" target="_blank" rel="noopener">NBA.com/stats</a>. Numbers are intentionally not invented when a live stats API is unavailable.</div>
+</div></section>
 
-    <section id="basketball" style="margin-top:55px">
-      <h2 class="section-title">🏀 Basketball</h2>
-      <div class="card">
-        <h3>Schedules • Scores • Rankings</h3>
-        <p>Add basketball coverage, tournament updates and player spotlights.</p>
-      </div>
-    </section>
+<section id="recruiting"><div class="wrap">
+<div class="head"><div><h2>College Recruiting Board</h2><p>Prospect rankings should always be labeled by recruiting service and class because rankings change.</p></div></div>
+<div class="card">
+<div class="recruit"><div class="r">1</div><div><h3>2027 Prospect Board</h3><div class="school">Top prospects • update with current ESPN/247Sports rankings</div></div><div class="service">SOURCE-LABELED</div></div>
+<hr style="border:0;border-top:1px solid var(--line);margin:17px 0">
+<p class="muted">Parker Sports will not invent recruiting rankings. Add a player's name only when the ranking and source can be verified.</p>
+<div class="source">Suggested sources: <a href="https://www.espn.com/college-sports/basketball/recruiting/" target="_blank" rel="noopener">ESPN Recruiting</a> and <a href="https://247sports.com/college/basketball/" target="_blank" rel="noopener">247Sports</a>.</div>
+</div>
+</div></section>
 
-    <section id="players" style="margin-top:55px">
-      <h2 class="section-title">⭐ Player Spotlight</h2>
-      <div class="grid">
-        <div class="card"><h3>Featured Player</h3><p>Add a short bio and verified stats here.</p></div>
-        <div class="card"><h3>Next Up</h3><p>Feature another athlete with permission to publish their information.</p></div>
-      </div>
-    </section>
-  </main>
+<section><div class="wrap"><div class="grid">
+<div class="card"><span class="tag">STATS</span><h3>Accuracy first</h3><p class="muted">Official league statistics are preferred over estimates. Every ranking should show its source and season.</p></div>
+<div class="card"><span class="tag">NEWS</span><h3>Daily updates</h3><p class="muted">The news section refreshes automatically when the public feed is available.</p></div>
+<div class="card"><span class="tag">RECRUITING</span><h3>Prospect tracking</h3><p class="muted">Recruiting rankings are separated from objective game statistics and clearly attributed.</p></div>
+</div></div></section>
+</main>
 
-  <footer>© 2026 Parker Sports • Built for local sports fans</footer>
+<footer><div class="wrap">© 2026 Parker Sports • NBA • Recruiting • News</div></footer>
+
+<script>
+const grid=document.getElementById("newsGrid");
+const esc=s=>String(s||"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+async function loadNews(){
+ try{
+  const r=await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?limit=9");
+  if(!r.ok) throw 0;
+  const d=await r.json(), items=(d.articles||[]).slice(0,9);
+  if(!items.length) throw 0;
+  grid.innerHTML=items.map(x=>{
+   const date=x.published?new Date(x.published).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"Latest";
+   return `<article class="card news"><a href="${esc(x.links?.web?.href||"#")}" target="_blank" rel="noopener"><div class="date">${esc(date)}</div><h3>${esc(x.headline||"NBA update")}</h3><p>${esc(x.description||"Read the full story from the original publisher.")}</p></a></article>`;
+  }).join("");
+ }catch(e){grid.innerHTML='<div class="card muted">The live news feed is temporarily unavailable. Check back later for the latest stories.</div>';}
+}
+loadNews();
+</script>
 </body>
 </html>
